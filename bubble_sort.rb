@@ -1,20 +1,28 @@
 sequence = [4, 3, 5, 0, 1]
 swaps = 0
 
-pre_sequence = [4, 3, 5, 0, 1]
-#previous = pre_sequence[0]
-#current = pre_sequence[1]
+result = sequence
 
-while current != nil
-  for i in 0..4
-    previous = pre_sequence[0]
-    current = pre_sequence[1]
-    if current < previous
-      pre_sequence[i] = current
-      pre_sequence[i+1] = previous
-      swaps += 1
+previous = result[0]
+current = result[1]
+i=0
+while current
+  p "##################"
+  p i
+  p result
+  previous = result[i]
+  p previous
+  current = result[i+1]
+  p current
+  p swaps
+  unless current.nil?
+    if previous > current
+    result[i] = current
+    result[i+1] = previous
+    swaps += 1
     end
   end
+  i < 4 || current.nil? ? i+=1 : i=0
 end
 
 puts "Final result: #{result}"
